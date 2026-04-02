@@ -1,4 +1,5 @@
 import httpx
+import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -95,3 +96,7 @@ async def summarize_route(request: RepoRequest):
     repo_metadata, candidates = await get_candidates(owner, repo)
     selected_files = optimize(candidates)
     return await summarize(owner, repo, repo_metadata, selected_files)
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8700)
