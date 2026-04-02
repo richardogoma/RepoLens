@@ -160,28 +160,11 @@ We model file selection as a **0–1 constrained optimization problem**.
 
 Let:
 
-- \(x_i \in \{0,1\}\) indicate whether file \(i\) is selected
-- \(v_i\) be the **value** of file \(i\)
-- \(t_i\) be the **estimated token cost** of file \(i\)
-- \(B\) be the total token budget
+<img width="392" height="106" alt="definitions" src="https://github.com/user-attachments/assets/8209180a-752e-4cf7-80ed-e1c74ec33c47" />
 
 We maximize the total informativeness of selected files:
 
-\[
-\max \sum_{i=1}^{n} v_i x_i
-\]
-
-subject to the token budget:
-
-\[
-\sum_{i=1}^{n} t_i x_i \leq B
-\]
-
-and binary decision variables:
-
-\[
-x_i \in \{0,1\}
-\]
+<img width="338" height="149" alt="optimization_model" src="https://github.com/user-attachments/assets/4c282210-122b-4ba8-9490-85c01867e8d6" />
 
 ---
 
@@ -255,9 +238,8 @@ A heuristic importance score based on:
 ### **3. Density**
 Defined as:
 
-\[
-\text{density} = \frac{\text{value}}{\text{tokens}}
-\]
+<img width="110" height="39" alt="density_scoring" src="https://github.com/user-attachments/assets/ad941abb-532c-473a-9746-f20b6fd2ae3e" />
+
 
 This represents **information per token** and is useful for debugging and analysis.
 
